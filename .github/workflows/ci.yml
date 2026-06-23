@@ -1,22 +1,25 @@
-name: ci 
+name: ci
 
-on: 
-  pull request: 
+on:
+  pull_request:
     brances: [main]
 
-jobs: 
-  tests: 
-    name: Tests 
-    runs-on: ubuntu-latest 
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
 
-    steps: 
-      - name: Check out code 
-        uses: actions/checkout@v6 
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
 
-      - name: Set up Node 
-        uses: actions/setup-node@v5 
-        with: 
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
           node-version: 22
 
-      - name: Force Failure 
-        run: (exit 1)
+      - name: Lookup node version
+        run: node --version
+
+      - name: exit
+        run: (exit 0)
